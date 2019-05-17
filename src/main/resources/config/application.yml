@@ -60,6 +60,10 @@ management:
                 auto-time-requests: true
 
 spring:
+    servlet:
+        multipart:
+            max-file-size: 30MB
+            max-request-size: 30MB
     application:
         name: csvupload
     profiles:

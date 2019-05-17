@@ -4,4 +4,29 @@ openapi: "3.0.1"
 info:
   title: "csvupload"
   version: 0.0.1
-paths: {}
+
+servers:
+    - url: http://localhost:8080
+
+paths:
+    '/api/developers/upload':
+        post:
+            operationId: uploadDevelopersCsvFile
+            tags:
+                - 'upload-csv : Developers'
+            requestBody:
+                content:
+                    multipart/form-data:
+                        schema:
+                            type: object
+                            properties:
+                                fileName:
+                                    type: string
+                                    format: binary
+            responses:
+                '200':
+                    description: upload successful
+                    content:
+                        application/text:
+                            schema:
+                                type: string
